@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.white,
             ),
           ),
-          home: Welcome(),
+          home: const Welcome(),
           routes: {
             "myHomePage": (context) => const MyHomePage(),
             "signIn": (context) => const SignIn(),
@@ -66,7 +66,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter Demo Home Page"),
+        title: const Text("Flutter Demo Home Page"),
       ),
       body: Center(
         child: BlocBuilder<AppBlocs, AppStates>(
