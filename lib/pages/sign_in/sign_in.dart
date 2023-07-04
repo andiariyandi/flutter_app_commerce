@@ -8,8 +8,10 @@ import 'package:ulearning_app/pages/sign_in/bloc/sign_in_states.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in_controller.dart';
 import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widget.dart';
 
+import '../common_widgets.dart';
+
 class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+  const SignIn({Key? key}) : super(key: key);
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -24,7 +26,7 @@ class _SignInState extends State<SignIn> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: buildAppBar(),
+            appBar: buildAppBar("Log In"),
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +65,9 @@ class _SignInState extends State<SignIn> {
                   buildLogInAndRegButton("Log In", "login", () {
                     SignInCotroller(context: context).handleSignIn("email");
                   }),
-                  buildLogInAndRegButton("Register", "register", () {}),
+                  buildLogInAndRegButton("Sign Up", "register", () {
+                    Navigator.of(context).pushNamed("register");
+                  }),
                 ],
               ),
             ),

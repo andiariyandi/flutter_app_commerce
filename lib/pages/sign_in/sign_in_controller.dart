@@ -18,6 +18,8 @@ class SignInCotroller {
           // print("email empty");
           toastInfo(msg: "You need to fill email addreass");
           return;
+        } else {
+          print("pgoooooooooooooooo");
         }
 
         if (password.isEmpty) {
