@@ -14,7 +14,7 @@ class SignInCotroller {
         String password = state.password;
         if (emailAddress.isEmpty) {
           //
-          print("email empty");
+          // print("email empty");
         } else {
           print("email is $emailAddress");
         }
