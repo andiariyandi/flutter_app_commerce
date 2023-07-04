@@ -4,13 +4,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/app_blocs.dart';
 import 'package:ulearning_app/app_events.dart';
 import 'package:ulearning_app/app_states.dart';
+import 'package:ulearning_app/pages/sign_in/bloc/sign_in_blocs.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 import 'package:ulearning_app/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
+import 'package:firebase_core/firebase_core.dart';
+// import 'app_states.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
+
+// void main() {
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,13 +30,14 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          // lazy: false,
+          lazy: false,
           create: (context) => WelcomeBloc(),
         ),
         BlocProvider(
-          // lazy: false,
+          lazy: false,
           create: (context) => AppBlocs(),
         ),
+        BlocProvider(create: (context) => SignInBloc())
       ],
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
